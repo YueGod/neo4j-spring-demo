@@ -14,6 +14,11 @@ import javax.annotation.Resource;
 @SpringBootTest
 public class TargetTypeTest {
 
+    public static void main(String[] args) {
+        Long l = System.currentTimeMillis();
+        System.out.println(l >>16);
+    }
+
     @Resource
     private TargetTypeRepository targetTypeRepository;
 
