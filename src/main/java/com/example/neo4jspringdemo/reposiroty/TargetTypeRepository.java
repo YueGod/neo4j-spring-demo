@@ -13,4 +13,5 @@ public interface TargetTypeRepository extends Neo4jRepository<TargetType,Long> {
 
     TargetType findByTargetType(Integer targetType);
 
+
 }

@@ -4,7 +4,6 @@ import com.example.neo4jspringdemo.entity.TargetType;
 import com.example.neo4jspringdemo.entity.TargetTypeRelation;
 import com.example.neo4jspringdemo.reposiroty.TargetTypeRelationRepository;
 import com.example.neo4jspringdemo.reposiroty.TargetTypeRepository;
-import lombok.AllArgsConstructor;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -66,8 +65,8 @@ public class TargetTypeRealtionTest {
 
         List<TargetTypeRelation> list = new ArrayList<>();
 
-        list.add(new TargetTypeRelation().setFromType(college).setToType(targetType).setParent(true).setDirect(false));
-        list.add(new TargetTypeRelation().setFromType(college).setToType(targetType2).setParent(true).setDirect(true));
+        list.add(new TargetTypeRelation().setFromType(college).setToType(targetType).setParent(false).setDirect(false));
+        list.add(new TargetTypeRelation().setFromType(college).setToType(targetType2).setParent(false).setDirect(true));
 
         targetTypeRelationRepository.saveAll(list);
     }
@@ -76,7 +75,7 @@ public class TargetTypeRealtionTest {
     /**
      * fn
      */
-    public void supplier_agent(){
+    public void supplier_agent() {
         TargetType supplier_agent = targetTypeRepository.findByTargetType(EnumTargetType.supplier_agent.getCode());
 
         TargetType targetType = targetTypeRepository.findByTargetType(EnumTargetType.college.getCode());
@@ -85,14 +84,14 @@ public class TargetTypeRealtionTest {
 
         List<TargetTypeRelation> list = new ArrayList<>();
 
-        list.add(new TargetTypeRelation().setFromType(supplier_agent).setToType(targetType).setParent(false).setDirect(false));
-        list.add(new TargetTypeRelation().setFromType(supplier_agent).setToType(targetType2).setParent(false).setDirect(false));
-        list.add(new TargetTypeRelation().setFromType(supplier_agent).setToType(targetType3).setParent(true).setDirect(false));
+        list.add(new TargetTypeRelation().setFromType(supplier_agent).setToType(targetType).setParent(true).setDirect(false));
+        list.add(new TargetTypeRelation().setFromType(supplier_agent).setToType(targetType2).setParent(true).setDirect(false));
+        list.add(new TargetTypeRelation().setFromType(supplier_agent).setToType(targetType3).setParent(false).setDirect(false));
 
         targetTypeRelationRepository.saveAll(list);
     }
 
-    public void team(){
+    public void team() {
         TargetType team = targetTypeRepository.findByTargetType(EnumTargetType.team.getCode());
 
         TargetType targetType = targetTypeRepository.findByTargetType(EnumTargetType.college.getCode());
@@ -100,13 +99,13 @@ public class TargetTypeRealtionTest {
 
         List<TargetTypeRelation> list = new ArrayList<>();
 
-        list.add(new TargetTypeRelation().setFromType(team).setToType(targetType).setParent(false).setDirect(false));
-        list.add(new TargetTypeRelation().setFromType(team).setToType(targetType3).setParent(true).setDirect(false));
+        list.add(new TargetTypeRelation().setFromType(team).setToType(targetType).setParent(true).setDirect(false));
+        list.add(new TargetTypeRelation().setFromType(team).setToType(targetType3).setParent(false).setDirect(false));
 
         targetTypeRelationRepository.saveAll(list);
     }
 
-    public void supplier(){
+    public void supplier() {
         TargetType supplier = targetTypeRepository.findByTargetType(EnumTargetType.supplier.getCode());
 
         TargetType targetType = targetTypeRepository.findByTargetType(EnumTargetType.supplier_agent.getCode());
@@ -114,8 +113,8 @@ public class TargetTypeRealtionTest {
 
         List<TargetTypeRelation> list = new ArrayList<>();
 
-        list.add(new TargetTypeRelation().setFromType(supplier).setToType(targetType).setParent(true).setDirect(false));
-        list.add(new TargetTypeRelation().setFromType(supplier).setToType(targetType3).setParent(true).setDirect(true));
+        list.add(new TargetTypeRelation().setFromType(supplier).setToType(targetType).setParent(false).setDirect(false));
+        list.add(new TargetTypeRelation().setFromType(supplier).setToType(targetType3).setParent(false).setDirect(true));
 
         targetTypeRelationRepository.saveAll(list);
     }
